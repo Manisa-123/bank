@@ -1,0 +1,84 @@
+import random
+print("1 Log in")
+print("2 Sign Up")
+c=int(input())
+
+def signup():
+    name=input("Enter Name:  ")
+    mail=input("Enter Email id:")
+    
+    if mail.find("@gmail.com")>0:
+        print("mail updated")
+    else:
+        print("Invalid")
+    
+    pw=input("Enter password:")
+    pw1=input("Confirm password:")
+    if len(pw)<6 or len(pw)>9:
+        print("Password should have 6-9 characters")
+    else:
+        if pw==pw1:
+            print("password set")
+        else:
+            print("Set password correctly")
+           
+    d=input("Enter Mobile No:")
+    if len(d)!=10:
+        print("Invalid")
+    else:
+        print("phn no updated")
+    d=(random.randint(0,999))
+    print("Your Account No is ",d)
+    f=open("guvi.txt","a")
+    f.write(str(d)+" ")
+    f.close
+    f=open("guvi.txt","r")
+    print(f.read())
+if c==2:
+    signup()
+def withdraw():
+    print("1 for withdraw")
+    print("2 for deposit")
+    print("3 to check balance")
+    bal=int(5000)
+    
+    z=int(input())
+    if z==1:
+       wd=int(input("Enter amount to be withdrawn:"))
+       bal=bal-wd
+       print("Balnce is",bal)
+    if z==2:
+        dp=int(input("Enter the amount to be deposited:"))
+        bal=bal+dp
+        print("Balance is",bal)
+    if z==3:
+         print("Your current balance is",bal)
+def login():
+    mail=input("Enter email id:")
+    pw=input("Enter password")
+    print("login sucessfull")
+    withdraw()
+if c==1:
+    login()
+def withdraw():
+    print("1 for withdraw")
+    print("2 for deposit")
+    print("3 to check balance")
+    bal=5000
+    minbal=10000
+    
+    z=int(input())
+    if z==1:
+       wd=input("Enter amount to be withdrawn")
+       ball=bal-wd
+       if ball<minbal:
+           print("Minimum balance of 10000 is mandatory")
+       else:
+           bal=bal-wd
+           
+       
+    if z==2:
+        dp=input("Enter the amount to be deposited")
+        bal=bal+dp
+    if z==3:
+         print("Your current balance is",bal)
